@@ -1,5 +1,102 @@
-.title {
-    background: blue;
-    width: 400px;
-    height: 200px;
+*{margin:0;padding:0} 
+.bodyBox {
+    background: url('../img/bottom_map.jpg') no-repeat center;
+    background-size:100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity:0.9;
+}
+.classification {
+    list-style-type: none;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap ;
+    animation:taxonomyRotation 5s;
+    -moz-animation:taxonomyRotation 5s;
+    -webkit-animation:taxonomyRotation 5s;
+    -o-animation:taxonomyRotation 5s;
+}
+.classificationItme {
+    background: rgba(0,0,0,0.5);
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    color: #fff;
+    margin: 0.1rem 0.1rem;
+    cursor: pointer;
+}
+
+@keyframes taxonomyRotation
+{
+from {
+    transform:rotate(0deg);
+    -ms-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+    -o-transform:rotate(0deg);
+}
+to {
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+}
+}
+
+@-moz-keyframes taxonomyRotation /* Firefox */
+{
+from {
+    transform:rotate(0deg);
+    -ms-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+    -o-transform:rotate(0deg);
+}
+to {
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+}
+}
+
+@-webkit-keyframes taxonomyRotation /* Safari 和 Chrome */
+{
+from {
+    transform:rotate(0deg);
+    -ms-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+    -o-transform:rotate(0deg);
+}
+to {
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+}
+}
+
+@-o-keyframes taxonomyRotation /* Opera */
+{
+from {
+    transform:rotate(0deg);
+    -ms-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+    -o-transform:rotate(0deg);
+}
+to {
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
+}
 }
