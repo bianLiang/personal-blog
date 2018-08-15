@@ -55,16 +55,16 @@
             inputContent: '',
             showInputContent: false,
             messageList: [
-                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
-                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
-                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
-                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
-                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
-                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
-                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
-                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
-                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
-                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名1', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名2', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名3', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名4', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名5', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名6', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名7', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名8', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名9', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名10', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
             ]
         },
         methods: {
@@ -75,9 +75,21 @@
                     this.showInputContent = false;
                 }
             },
+            getNewData: function() {
+                let myDate = new Date();
+                let year =  myDate.getFullYear();
+                let month = myDate.getMonth() + 1 < 10 ? '0' + (myDate.getMonth() + 1) : myDate.getMonth() + 1;
+                let xDate = myDate.getDate() < 10 ?  '0' + myDate.getDate() : myDate.getDate();
+                let hours = myDate.getHours() < 10 ? '0' + myDate.getHours() : myDate.getHours();
+                let minutes = myDate.getMinutes() < 10 ? '0' + myDate.getMinutes() : myDate.getMinutes();
+                let timeValue = year.toString() + '-' + month.toString() + '-'+ xDate.toString() +  ' ' + hours.toString() + ':' + minutes.toString();
+                return timeValue;
+            },
             Submission: function() {
+                console.log(this.getNewData());
                 // 这里向后台提交留言数据
             }
+
         }
     })
 </script>
