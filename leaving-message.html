@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>欢迎留言</title>
+    <link rel="stylesheet" href="./font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/leaving-message.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="./js/leaving-message.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="bodyBox" class="bodyBox">
+        <header>
+            <div class="inputBox">
+                <input v-model="inputContent" type="text" class="form-control" @keyup="show($event)" placeholder="留个言吧...">
+                <button class="btn btn-default" @click="Submission()">留言</button>
+                <transition name="fade">
+                    <div v-if="showInputContent">{{ inputContent }}</div>
+                </transition>
+            </div>
+        </header>
+        <section>
+            <div class="contentBox" v-for="(item, index) in messageList" :key="index">
+                <div class="name">
+                    <div class="iconBox">
+                        <i class="fa fa-odnoklassniki myIcon"></i>
+                    </div>
+                    <div class="nameBox">
+                        <span>{{ item.name }}</span>
+                        <span>{{ item.creationTime }}</span>
+                    </div>
+                </div>
+                <div class="content">
+                    <p>{{ item.content }}</p>
+                </div>
+            </div>
+        </section>
+        <footer></footer>
+    </div>
+</body>
+</html>
+
+<script>
+    var app = new Vue({
+        el: '#bodyBox',
+        created: function() {
+            // 获取列表数据
+        },
+        data: {
+            inputContent: '',
+            showInputContent: false,
+            messageList: [
+                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+                {headPortrait: '', name: '匿名', creationTime: '2018-08-15 15:02', content: '君不见，高堂明镜悲白发，朝如青丝暮成雪。'},
+            ]
+        },
+        methods: {
+            show: function(e) {
+                if (this.inputContent) {
+                     this.showInputContent = true;
+                } else {
+                    this.showInputContent = false;
+                }
+            },
+            Submission: function() {
+                // 这里向后台提交留言数据
+            }
+        }
+    })
+</script>
