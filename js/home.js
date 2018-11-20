@@ -3,5 +3,4 @@ $(function(){
     var bodyWidth = $(document).width() + 'px';
     $('.bodyBox').css('height', bodyHeight)
     $('.bodyBox').css('width', bodyWidth)
-    
  });
