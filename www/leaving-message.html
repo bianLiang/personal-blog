@@ -13,6 +13,7 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.bootcss.com/vue-resource/1.5.1/vue-resource.js"></script>
+    <!-- <script src="../public/environmental.js"></script> -->
 </head>
 <body>
     <div id="bodyBox" class="bodyBox">
@@ -69,7 +70,10 @@
             ]
         },
         beforeMount() {
-            this.$http.get('http://localhost:8080/leavingmessage/list').then((res) => {
+            // var environmental = require('../public/environmental.js');
+            // const url = environmental.setApi;
+            // console.log(setApi);
+            this.$http.get('http://45.76.195.155:8080/leavingmessage/list').then((res) => {
                 this.leavingMessageList = res.body.data;
                 this.leavingMessageList.reverse();
             });
@@ -97,9 +101,9 @@
                 // 这里向后台提交留言数据
                 if (this.inputContent) {
                     const obj = {headPortrait: '', name:`匿名${this.leavingMessageList.length + 1}`, creationTime: this.getNewData(), content: this.inputContent};
-                    this.$http.post('http://localhost:8080/leavingmessage/add_leaving_message', obj).then((res) => {
+                    this.$http.post('http://45.76.195.155:8080/leavingmessage/add_leaving_message', obj).then((res) => {
                         if (res.body.code == 200) {
-                            this.$http.get('http://localhost:8080/leavingmessage/list').then((res) => {
+                            this.$http.get('http://45.76.195.155:8080/leavingmessage/list').then((res) => {
                                 this.leavingMessageList = res.body.data;
                                 this.leavingMessageList.reverse();
                                 this.inputContent = '';
