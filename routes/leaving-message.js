@@ -31,7 +31,7 @@ router.get('/updata_leaving_message',function(req,res){
     res.send('留言列表 修改');
 });
  
-router.get('/delete_leaving_message',function(req,res){
+router.delete('/delete_leaving_message',function(req,res){
     res.send('留言列表 删除');
 });
 

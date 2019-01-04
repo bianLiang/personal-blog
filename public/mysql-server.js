@@ -32,6 +32,18 @@ const addData = (tableName, obj, sucCallback, errCallback) => {
     })
 };
 
+const updataImg = (tableName, imgurl, ID, sucCallback, errCallback) => {
+    var modSql = `UPDATE ${tableName} SET imgurl = ? WHERE Id = ?`;
+    var modSqlParams = [imgurl, ID];
+    connection.query(modSql,modSqlParams,function (err, result) {
+       if(err){
+            errCallback(err);
+            return;
+        };
+        sucCallback(result)
+    });
+};
+
 
 
 const delData = () => {
@@ -39,5 +51,6 @@ const delData = () => {
 module.exports = {
     getData: getData,
     delData: delData,
-    addData: addData
+    addData: addData,
+    updataImg: updataImg
 };
