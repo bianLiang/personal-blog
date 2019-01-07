@@ -14,8 +14,10 @@ app.all('*', function(req, res, next) {
 });
 
 var bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json())
+app.use(bodyParser.json({limit:'50mb'}));
+app.use(bodyParser.urlencoded({limit:'50mb',extended:false}));
+// app.use(bodyParser.urlencoded({extended: false}));
+// app.use(bodyParser.json())
 
 app.use('/leavingmessage',leavingMessage);
 app.use('/article',article);
