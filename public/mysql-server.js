@@ -27,6 +27,16 @@ const getArticleListData = (tableName, index, sucCallback, errCallback) => {
         sucCallback(result);
     })
 };
+const getArticleDetailsData = (tableName, id, sucCallback, errCallback) => {
+    var  sql = `SELECT content FROM ${tableName} WHERE ID=${id}`;
+    connection.query(sql, function(err, result) {
+        if (err) {
+         errCallback(err);
+         return;
+        };
+        sucCallback(result);
+    })
+};
 const addData = (tableName, obj, sucCallback, errCallback) => {
     var objData = [];
     for(var i in obj) {
@@ -53,6 +63,18 @@ const addImg = (tableName, imgurl, ID, sucCallback, errCallback) => {
         sucCallback(result)
     });
 };
+const addMd = (tableName,contentUrl, ID, sucCallback, errCallback) => {
+    // console.log(contentUrl);
+    var modSql = `UPDATE ${tableName} SET content = ? WHERE Id = ?`;
+    var modSqlParams = [contentUrl, ID];
+    connection.query(modSql,modSqlParams,function (err, result) {
+       if(err){
+            errCallback(err);
+            return;
+        };
+        sucCallback(result)
+    });
+};
 
 
 
@@ -63,5 +85,7 @@ module.exports = {
     delData: delData,
     addData: addData,
     addImg: addImg,
-    getArticleListData: getArticleListData
+    getArticleListData: getArticleListData,
+    getArticleDetailsData: getArticleDetailsData,
+    addMd: addMd
 };

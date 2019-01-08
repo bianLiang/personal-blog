@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var formidable = require('formidable');
 const path = require('path');
 var fs = require('fs');
 var mysqlServer = require('../public/mysql-server.js');

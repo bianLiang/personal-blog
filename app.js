@@ -2,6 +2,7 @@ var express = require("express");
 const path = require('path');
 var leavingMessage = require("./routes/leaving-message.js");
 var article = require("./routes/article.js");
+var details = require("./routes/details.js");
 var app = new express();
 var expressStatic = require('express-static');
 app.all('*', function(req, res, next) {
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({limit:'50mb',extended:false}));
 
 app.use('/leavingmessage',leavingMessage);
 app.use('/article',article);
+app.use('/details',details);
 app.use(expressStatic('./dist'));
 app.get('/', function(req, res) {
    res.sendfile(__dirname + '/index.html'); 
