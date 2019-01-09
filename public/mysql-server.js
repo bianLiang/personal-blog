@@ -18,7 +18,8 @@ const getData = (tableName, sucCallback, errCallback) => {
     })
 };
 const getArticleListData = (tableName, index, sucCallback, errCallback) => {
-    var  sql = `SELECT * FROM ${tableName}  limit ${index},2 `;
+    // var  sql = `SELECT * FROM ${tableName} limit ${index},5`;
+    var  sql = `select * from ${tableName} order by id desc limit ${index},5`;
     connection.query(sql, function(err, result) {
         if (err) {
          errCallback(err);

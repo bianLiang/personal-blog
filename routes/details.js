@@ -24,8 +24,8 @@ router.get("/article_details",function(req,res){
                 console.log("文件不存在！");
                 res.send("文件不存在！");
             }else{
-                htmlStr = marked(data.toString());
-                res.send({code: 200, message: '成功', data: htmlStr});
+                // htmlStr = marked(data.toString()); 这是转markdown文件
+                res.send({code: 200, message: '成功', data: data.toString()});
                 res.end();
             }
         });
