@@ -65,7 +65,6 @@ const addImg = (tableName, imgurl, ID, sucCallback, errCallback) => {
     });
 };
 const addMd = (tableName,contentUrl, ID, sucCallback, errCallback) => {
-    // console.log(contentUrl);
     var modSql = `UPDATE ${tableName} SET content = ? WHERE Id = ?`;
     var modSqlParams = [contentUrl, ID];
     connection.query(modSql,modSqlParams,function (err, result) {
